@@ -1,0 +1,53 @@
+{
+    "name": "the-strat",
+    "description": "Resources for learning and trading The Strat.",
+    "version": "0.0.0",
+    "author": {
+        "name": "Michael Novotny",
+        "email": "manovotny@gmail.com",
+        "url": "https://manovotny.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/manovotny/the-strat.git"
+    },
+    "keywords": [
+        "forex",
+        "futures",
+        "indicators",
+        "options",
+        "price-action",
+        "stocks",
+        "strategy",
+        "technical-analysis",
+        "thinkorswim",
+        "tos",
+        "trading-view"
+    ],
+    "engines": {
+        "node": ">=12.20.0"
+    },
+    "scripts": {
+        "check": "npm-check -u",
+        "lint-staged": "lint-staged",
+        "prettier": "prettier --write --ignore-unknown .",
+        "prettier:check": "prettier --check --ignore-unknown .",
+        "test": "npm run prettier:check"
+    },
+    "git": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*": "prettier --write --ignore-unknown"
+    },
+    "devDependencies": {
+        "@vercel/git-hooks": "1.0.0",
+        "eslint": "8.8.0",
+        "eslint-config-get-off-my-lawn": "7.0.0",
+        "lint-staged": "12.3.3",
+        "npm-check": "5.9.2",
+        "prettier": "2.5.1",
+        "prettier-config-get-off-my-lawn": "1.0.0"
+    }
+}
