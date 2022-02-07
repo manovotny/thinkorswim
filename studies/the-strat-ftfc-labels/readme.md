@@ -2,7 +2,7 @@
 
 > Simple FTFC confirmation at a glance.
 
-![Screenshot](./preview.png)
+![Screenshot](./preview.jpg)
 
 [👀 View the code](./code.tosts)
 
@@ -11,7 +11,7 @@
 ## Features
 
 -   Zero-config! It just works. Install and go!
--   Up and down colors automatically match your chart setting up and down colors.
+-   Up and down colors automatically match your chart setting up and down colors. Doji / even color is light gray.
 -   Highly performant; only running calculations when absolutely necessary.
 -   Includes 1 minute, 5 minute, 15 minute, 30 minute, 60 minute / 1 hour, 2 hour, 4 hour, day, week, month, quarter, and year time frames.
 -   A simple `*` indicator to denote a time frame is an inside bar.
