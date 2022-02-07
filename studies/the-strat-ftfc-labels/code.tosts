@@ -1,0 +1,382 @@
+# The Strat - FTFC (Full Time Frame Continuity) Labels
+#
+# Simple FTFC confirmation at a glance.
+#
+# https://github.com/manovotny/thinkorswim/indicators/the-strat-ftfc-labels
+#
+# Last updated: 02/06/2022
+#----------------------------------------------------------------------------------
+
+declare upper;
+
+# 1 Minute
+#----------------------------------------------------------------------------------
+
+def oneMinuteTimeFrame = AggregationPeriod.MIN;
+def oneMinuteEnabled = GetAggregationPeriod() <= oneMinuteTimeFrame;
+def oneMinuteOpen;
+def oneMinuteHigh;
+def oneMinuteLow;
+def oneMinuteClose;
+def oneMinuteIsOneBar;
+
+if (oneMinuteEnabled) {
+    oneMinuteOpen = open(period = oneMinuteTimeFrame);
+    oneMinuteHigh = high(period = oneMinuteTimeFrame);
+    oneMinuteLow = low(period = oneMinuteTimeFrame);
+    oneMinuteClose = close(period = oneMinuteTimeFrame);
+    oneMinuteIsOneBar = oneMinuteHigh[0] <= oneMinuteHigh[1] and oneMinuteLow[0] >= oneMinuteLow[1];
+} else {
+    oneMinuteOpen = Double.NaN;
+    oneMinuteHigh = Double.NaN;
+    oneMinuteLow = Double.NaN;
+    oneMinuteClose = Double.NaN;
+    oneMinuteIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    oneMinuteEnabled,
+    if (oneMinuteIsOneBar) then "1*" else "1",
+    if (oneMinuteClose > oneMinuteOpen) then Color.UPTICK else if (oneMinuteClose < oneMinuteOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# 5 Minute
+#----------------------------------------------------------------------------------
+
+def fiveMinuteTimeFrame = AggregationPeriod.FIVE_MIN;
+def fiveMinuteEnabled = GetAggregationPeriod() <= fiveMinuteTimeFrame;
+def fiveMinuteOpen;
+def fiveMinuteHigh;
+def fiveMinuteLow;
+def fiveMinuteClose;
+def fiveMinuteIsOneBar;
+
+if (fiveMinuteEnabled) {
+    fiveMinuteOpen = open(period = fiveMinuteTimeFrame);
+    fiveMinuteHigh = high(period = fiveMinuteTimeFrame);
+    fiveMinuteLow = low(period = fiveMinuteTimeFrame);
+    fiveMinuteClose = close(period = fiveMinuteTimeFrame);
+    fiveMinuteIsOneBar = fiveMinuteHigh[0] <= fiveMinuteHigh[1] and fiveMinuteLow[0] >= fiveMinuteLow[1];
+} else {
+    fiveMinuteOpen = Double.NaN;
+    fiveMinuteHigh = Double.NaN;
+    fiveMinuteLow = Double.NaN;
+    fiveMinuteClose = Double.NaN;
+    fiveMinuteIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    fiveMinuteEnabled,
+    if (fiveMinuteIsOneBar) then "5*" else "5",
+    if (fiveMinuteClose > fiveMinuteOpen) then Color.UPTICK else if (fiveMinuteClose < fiveMinuteOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# 15 Minute
+#----------------------------------------------------------------------------------
+
+def fifteenMinuteTimeFrame = AggregationPeriod.FIFTEEN_MIN;
+def fifteenMinuteEnabled = GetAggregationPeriod() <= fifteenMinuteTimeFrame;
+def fifteenMinuteOpen;
+def fifteenMinuteHigh;
+def fifteenMinuteLow;
+def fifteenMinuteClose;
+def fifteenMinuteIsOneBar;
+
+if (fifteenMinuteEnabled) {
+    fifteenMinuteOpen = open(period = fifteenMinuteTimeFrame);
+    fifteenMinuteHigh = high(period = fifteenMinuteTimeFrame);
+    fifteenMinuteLow = low(period = fifteenMinuteTimeFrame);
+    fifteenMinuteClose = close(period = fifteenMinuteTimeFrame);
+    fifteenMinuteIsOneBar = fifteenMinuteHigh[0] <= fifteenMinuteHigh[1] and fifteenMinuteLow[0] >= fifteenMinuteLow[1];
+} else {
+    fifteenMinuteOpen = Double.NaN;
+    fifteenMinuteHigh = Double.NaN;
+    fifteenMinuteLow = Double.NaN;
+    fifteenMinuteClose = Double.NaN;
+    fifteenMinuteIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    fifteenMinuteEnabled,
+    if (fifteenMinuteIsOneBar) then "15*" else "15",
+    if (fifteenMinuteClose > fifteenMinuteOpen) then Color.UPTICK else if (fifteenMinuteClose < fifteenMinuteOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# 30 Minute
+#----------------------------------------------------------------------------------
+
+def thirtyMinuteTimeFrame = AggregationPeriod.THIRTY_MIN;
+def thirtyMinuteEnabled = GetAggregationPeriod() <= thirtyMinuteTimeFrame;
+def thirtyMinuteOpen;
+def thirtyMinuteHigh;
+def thirtyMinuteLow;
+def thirtyMinuteClose;
+def thirtyMinuteIsOneBar;
+
+if (thirtyMinuteEnabled) {
+    thirtyMinuteOpen = open(period = thirtyMinuteTimeFrame);
+    thirtyMinuteHigh = high(period = thirtyMinuteTimeFrame);
+    thirtyMinuteLow = low(period = thirtyMinuteTimeFrame);
+    thirtyMinuteClose = close(period = thirtyMinuteTimeFrame);
+    thirtyMinuteIsOneBar = thirtyMinuteHigh[0] <= thirtyMinuteHigh[1] and thirtyMinuteLow[0] >= thirtyMinuteLow[1];
+} else {
+    thirtyMinuteOpen = Double.NaN;
+    thirtyMinuteHigh = Double.NaN;
+    thirtyMinuteLow = Double.NaN;
+    thirtyMinuteClose = Double.NaN;
+    thirtyMinuteIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    thirtyMinuteEnabled,
+    if (thirtyMinuteIsOneBar) then "30*" else "30",
+    if (thirtyMinuteClose > thirtyMinuteOpen) then Color.UPTICK else if (thirtyMinuteClose < thirtyMinuteOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# 60 Minute / 1 Hour
+#----------------------------------------------------------------------------------
+
+def oneHourTimeFrame = AggregationPeriod.HOUR;
+def oneHourEnabled = GetAggregationPeriod() <= oneHourTimeFrame;
+def oneHourOpen;
+def oneHourHigh;
+def oneHourLow;
+def oneHourClose;
+def oneHourIsOneBar;
+
+if (oneHourEnabled) {
+    oneHourOpen = open(period = oneHourTimeFrame);
+    oneHourHigh = high(period = oneHourTimeFrame);
+    oneHourLow = low(period = oneHourTimeFrame);
+    oneHourClose = close(period = oneHourTimeFrame);
+    oneHourIsOneBar = oneHourHigh[0] <= oneHourHigh[1] and oneHourLow[0] >= oneHourLow[1];
+} else {
+    oneHourOpen = Double.NaN;
+    oneHourHigh = Double.NaN;
+    oneHourLow = Double.NaN;
+    oneHourClose = Double.NaN;
+    oneHourIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    oneHourEnabled,
+    if (oneHourIsOneBar) then "60*" else "60",
+    if (oneHourClose > oneHourOpen) then Color.UPTICK else if (oneHourClose < oneHourOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# 2 Hour
+#----------------------------------------------------------------------------------
+
+def twoHourTimeFrame = AggregationPeriod.TWO_HOURS;
+def twoHourEnabled = GetAggregationPeriod() <= twoHourTimeFrame;
+def twoHourOpen;
+def twoHourHigh;
+def twoHourLow;
+def twoHourClose;
+def twoHourIsOneBar;
+
+if (twoHourEnabled) {
+    twoHourOpen = open(period = twoHourTimeFrame);
+    twoHourHigh = high(period = twoHourTimeFrame);
+    twoHourLow = low(period = twoHourTimeFrame);
+    twoHourClose = close(period = twoHourTimeFrame);
+    twoHourIsOneBar = twoHourHigh[0] <= twoHourHigh[1] and twoHourLow[0] >= twoHourLow[1];
+} else {
+    twoHourOpen = Double.NaN;
+    twoHourHigh = Double.NaN;
+    twoHourLow = Double.NaN;
+    twoHourClose = Double.NaN;
+    twoHourIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    twoHourEnabled,
+    if (twoHourIsOneBar) then "2h*" else "2h",
+    if (twoHourClose > twoHourOpen) then Color.UPTICK else if (twoHourClose < twoHourOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# 4 Hour
+#----------------------------------------------------------------------------------
+
+def fourHourTimeFrame = AggregationPeriod.FOUR_HOURS;
+def fourHourEnabled = GetAggregationPeriod() <= fourHourTimeFrame;
+def fourHourOpen;
+def fourHourHigh;
+def fourHourLow;
+def fourHourClose;
+def fourHourIsOneBar;
+
+if (fourHourEnabled) {
+    fourHourOpen = open(period = fourHourTimeFrame);
+    fourHourHigh = high(period = fourHourTimeFrame);
+    fourHourLow = low(period = fourHourTimeFrame);
+    fourHourClose = close(period = fourHourTimeFrame);
+    fourHourIsOneBar = fourHourHigh[0] <= fourHourHigh[1] and fourHourLow[0] >= fourHourLow[1];
+} else {
+    fourHourOpen = Double.NaN;
+    fourHourHigh = Double.NaN;
+    fourHourLow = Double.NaN;
+    fourHourClose = Double.NaN;
+    fourHourIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    fourHourEnabled,
+    if (fourHourIsOneBar) then "4h*" else "4h",
+    if (fourHourClose > fourHourOpen) then Color.UPTICK else if (fourHourClose < fourHourOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# Day
+#----------------------------------------------------------------------------------
+
+def dayTimeFrame = AggregationPeriod.DAY;
+def dayEnabled = GetAggregationPeriod() <= dayTimeFrame;
+def dayOpen;
+def dayHigh;
+def dayLow;
+def dayClose;
+def dayIsOneBar;
+
+if (dayEnabled) {
+    dayOpen = open(period = dayTimeFrame);
+    dayHigh = high(period = dayTimeFrame);
+    dayLow = low(period = dayTimeFrame);
+    dayClose = close(period = dayTimeFrame);
+    dayIsOneBar = dayHigh[0] <= dayHigh[1] and dayLow[0] >= dayLow[1];
+} else {
+    dayOpen = Double.NaN;
+    dayHigh = Double.NaN;
+    dayLow = Double.NaN;
+    dayClose = Double.NaN;
+    dayIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    dayEnabled,
+    if (dayIsOneBar) then "D*" else "D",
+    if (dayClose > dayOpen) then Color.UPTICK else if (dayClose < dayOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# Week
+#----------------------------------------------------------------------------------
+
+def weekTimeFrame = AggregationPeriod.WEEK;
+def weekEnabled = GetAggregationPeriod() <= weekTimeFrame;
+def weekOpen;
+def weekHigh;
+def weekLow;
+def weekClose;
+def weekIsOneBar;
+
+if (weekEnabled) {
+    weekOpen = open(period = weekTimeFrame);
+    weekHigh = high(period = weekTimeFrame);
+    weekLow = low(period = weekTimeFrame);
+    weekClose = close(period = weekTimeFrame);
+    weekIsOneBar = weekHigh[0] <= weekHigh[1] and weekLow[0] >= weekLow[1];
+} else {
+    weekOpen = Double.NaN;
+    weekHigh = Double.NaN;
+    weekLow = Double.NaN;
+    weekClose = Double.NaN;
+    weekIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    weekEnabled,
+    if (weekIsOneBar) then "W*" else "W",
+    if (weekClose > weekOpen) then Color.UPTICK else if (weekClose < weekOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# Month
+#----------------------------------------------------------------------------------
+
+def monthTimeFrame = AggregationPeriod.MONTH;
+def monthEnabled = GetAggregationPeriod() <= monthTimeFrame;
+def monthOpen;
+def monthHigh;
+def monthLow;
+def monthClose;
+def monthIsOneBar;
+
+if (monthEnabled) {
+    monthOpen = open(period = monthTimeFrame);
+    monthHigh = high(period = monthTimeFrame);
+    monthLow = low(period = monthTimeFrame);
+    monthClose = close(period = monthTimeFrame);
+    monthIsOneBar = monthHigh[0] <= monthHigh[1] and monthLow[0] >= monthLow[1];
+} else {
+    monthOpen = Double.NaN;
+    monthHigh = Double.NaN;
+    monthLow = Double.NaN;
+    monthClose = Double.NaN;
+    monthIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    monthEnabled,
+    if (monthIsOneBar) then "M*" else "M",
+    if (monthClose > monthOpen) then Color.UPTICK else if (monthClose < monthOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# Quarter
+#----------------------------------------------------------------------------------
+
+def quarterTimeFrame = AggregationPeriod.QUARTER;
+def quarterEnabled = GetAggregationPeriod() <= quarterTimeFrame;
+def quarterOpen;
+def quarterHigh;
+def quarterLow;
+def quarterClose;
+def quarterIsOneBar;
+
+if (quarterEnabled) {
+    quarterOpen = open(period = quarterTimeFrame);
+    quarterHigh = high(period = quarterTimeFrame);
+    quarterLow = low(period = quarterTimeFrame);
+    quarterClose = close(period = quarterTimeFrame);
+    quarterIsOneBar = quarterHigh[0] <= quarterHigh[1] and quarterLow[0] >= quarterLow[1];
+} else {
+    quarterOpen = Double.NaN;
+    quarterHigh = Double.NaN;
+    quarterLow = Double.NaN;
+    quarterClose = Double.NaN;
+    quarterIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    quarterEnabled,
+    if (quarterIsOneBar) then "Q*" else "Q",
+    if (quarterClose > quarterOpen) then Color.UPTICK else if (quarterClose < quarterOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
+
+# Year
+#----------------------------------------------------------------------------------
+
+def yearTimeFrame = AggregationPeriod.YEAR;
+def yearEnabled = GetAggregationPeriod() <= yearTimeFrame;
+def yearOpen;
+def yearHigh;
+def yearLow;
+def yearClose;
+def yearIsOneBar;
+
+if (yearEnabled) {
+    yearOpen = open(period = yearTimeFrame);
+    yearHigh = high(period = yearTimeFrame);
+    yearLow = low(period = yearTimeFrame);
+    yearClose = close(period = yearTimeFrame);
+    yearIsOneBar = yearHigh[0] <= yearHigh[1] and yearLow[0] >= yearLow[1];
+} else {
+    yearOpen = Double.NaN;
+    yearHigh = Double.NaN;
+    yearLow = Double.NaN;
+    yearClose = Double.NaN;
+    yearIsOneBar = Double.NaN;
+}
+
+AddLabel(
+    yearEnabled,
+    if (yearIsOneBar) then "Y*" else "Y",
+    if (yearClose > yearOpen) then Color.UPTICK else if (yearClose < yearOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
+);
