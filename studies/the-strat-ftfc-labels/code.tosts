@@ -9,37 +9,6 @@
 
 declare upper;
 
-# 1 Minute
-#----------------------------------------------------------------------------------
-
-def oneMinuteTimeFrame = AggregationPeriod.MIN;
-def oneMinuteEnabled = GetAggregationPeriod() <= oneMinuteTimeFrame;
-def oneMinuteOpen;
-def oneMinuteHigh;
-def oneMinuteLow;
-def oneMinuteClose;
-def oneMinuteIsOneBar;
-
-if (oneMinuteEnabled) {
-    oneMinuteOpen = open(period = oneMinuteTimeFrame);
-    oneMinuteHigh = high(period = oneMinuteTimeFrame);
-    oneMinuteLow = low(period = oneMinuteTimeFrame);
-    oneMinuteClose = close(period = oneMinuteTimeFrame);
-    oneMinuteIsOneBar = oneMinuteHigh[0] <= oneMinuteHigh[1] and oneMinuteLow[0] >= oneMinuteLow[1];
-} else {
-    oneMinuteOpen = Double.NaN;
-    oneMinuteHigh = Double.NaN;
-    oneMinuteLow = Double.NaN;
-    oneMinuteClose = Double.NaN;
-    oneMinuteIsOneBar = Double.NaN;
-}
-
-AddLabel(
-    oneMinuteEnabled,
-    if (oneMinuteIsOneBar) then "1*" else "1",
-    if (oneMinuteClose > oneMinuteOpen) then Color.UPTICK else if (oneMinuteClose < oneMinuteOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
-);
-
 # 5 Minute
 #----------------------------------------------------------------------------------
 
@@ -162,68 +131,6 @@ AddLabel(
     oneHourEnabled,
     if (oneHourIsOneBar) then "60*" else "60",
     if (oneHourClose > oneHourOpen) then Color.UPTICK else if (oneHourClose < oneHourOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
-);
-
-# 2 Hour
-#----------------------------------------------------------------------------------
-
-def twoHourTimeFrame = AggregationPeriod.TWO_HOURS;
-def twoHourEnabled = GetAggregationPeriod() <= twoHourTimeFrame;
-def twoHourOpen;
-def twoHourHigh;
-def twoHourLow;
-def twoHourClose;
-def twoHourIsOneBar;
-
-if (twoHourEnabled) {
-    twoHourOpen = open(period = twoHourTimeFrame);
-    twoHourHigh = high(period = twoHourTimeFrame);
-    twoHourLow = low(period = twoHourTimeFrame);
-    twoHourClose = close(period = twoHourTimeFrame);
-    twoHourIsOneBar = twoHourHigh[0] <= twoHourHigh[1] and twoHourLow[0] >= twoHourLow[1];
-} else {
-    twoHourOpen = Double.NaN;
-    twoHourHigh = Double.NaN;
-    twoHourLow = Double.NaN;
-    twoHourClose = Double.NaN;
-    twoHourIsOneBar = Double.NaN;
-}
-
-AddLabel(
-    twoHourEnabled,
-    if (twoHourIsOneBar) then "2h*" else "2h",
-    if (twoHourClose > twoHourOpen) then Color.UPTICK else if (twoHourClose < twoHourOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
-);
-
-# 4 Hour
-#----------------------------------------------------------------------------------
-
-def fourHourTimeFrame = AggregationPeriod.FOUR_HOURS;
-def fourHourEnabled = GetAggregationPeriod() <= fourHourTimeFrame;
-def fourHourOpen;
-def fourHourHigh;
-def fourHourLow;
-def fourHourClose;
-def fourHourIsOneBar;
-
-if (fourHourEnabled) {
-    fourHourOpen = open(period = fourHourTimeFrame);
-    fourHourHigh = high(period = fourHourTimeFrame);
-    fourHourLow = low(period = fourHourTimeFrame);
-    fourHourClose = close(period = fourHourTimeFrame);
-    fourHourIsOneBar = fourHourHigh[0] <= fourHourHigh[1] and fourHourLow[0] >= fourHourLow[1];
-} else {
-    fourHourOpen = Double.NaN;
-    fourHourHigh = Double.NaN;
-    fourHourLow = Double.NaN;
-    fourHourClose = Double.NaN;
-    fourHourIsOneBar = Double.NaN;
-}
-
-AddLabel(
-    fourHourEnabled,
-    if (fourHourIsOneBar) then "4h*" else "4h",
-    if (fourHourClose > fourHourOpen) then Color.UPTICK else if (fourHourClose < fourHourOpen) then Color.DOWNTICK else Color.LIGHT_GRAY
 );
 
 # Day
