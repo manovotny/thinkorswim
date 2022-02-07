@@ -6,7 +6,7 @@
 
 [👀 View the code](./code.tosts)
 
-[🔗 Import into TOS](http://tos.mx/0HHWqmZ)
+[🔗 Import into TOS](http://tos.mx/Fv8tbyM)
 
 ## Features
 
